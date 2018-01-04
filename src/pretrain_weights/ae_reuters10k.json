@@ -1,0 +1,36 @@
+{"keras_version": "1.0.8",
+"class_name": "Sequential",
+"config": [
+  {"class_name": "Dense",
+   "config": 
+      {"kernel_initializer": "glorot_uniform", "trainable": true, "name": "encoder1", "input_dim": 2000, "activation": "relu", "bias_regularizer": null, "use_bias": true, "input_dtype": "float32", "kernel_constraint": null, "kernel_regularizer": null, "activity_regularizer": null, "bias_constraint": null, "batch_input_shape": [null, 2000], "units": 500}
+      },
+  {"class_name": "Dense",
+   "config":
+      {"kernel_initializer": "glorot_uniform", "trainable": true, "name": "encoder2", "input_dim": null, "activation": "relu", "bias_regularizer": null, "use_bias": true, "kernel_constraint": null, "kernel_regularizer": null, "activity_regularizer": null, "bias_constraint": null, "units": 500}
+  },
+  {"class_name": "Dense",
+   "config":
+      {"kernel_initializer": "glorot_uniform", "trainable": true, "name": "encoder3", "input_dim": null, "activation": "relu", "bias_regularizer": null, "use_bias": true, "kernel_constraint": null, "kernel_regularizer": null, "activity_regularizer": null, "bias_constraint": null, "units": 2000}
+  },
+  {"class_name": "Dense",
+  "config":
+      {"kernel_initializer": "glorot_uniform", "trainable": true, "name": "encoder4", "input_dim": null, "activation": "linear", "bias_regularizer": null, "use_bias": true, "kernel_constraint": null, "kernel_regularizer": null, "activity_regularizer": null, "bias_constraint": null, "units": 10}
+  },
+  {"class_name": "Dense",
+   "config":
+      {"kernel_initializer": "glorot_uniform", "trainable": true, "name": "decoder1", "input_dim": null, "activation": "relu", "bias_regularizer": null, "use_bias": true, "kernel_constraint": null, "kernel_regularizer": null, "activity_regularizer": null, "bias_constraint": null, "units": 2000}
+  },
+  {"class_name": "Dense",
+   "config":
+      {"kernel_initializer": "glorot_uniform", "trainable": true, "name": "decoder2", "input_dim": null, "activation": "relu", "bias_regularizer": null, "use_bias": true, "kernel_constraint": null, "kernel_regularizer": null, "activity_regularizer": null, "bias_constraint": null, "units": 500}
+  },
+  {"class_name": "Dense",
+   "config":
+      {"kernel_initializer": "glorot_uniform", "trainable": true, "name": "decoder3", "input_dim": null, "activation": "relu", "bias_regularizer": null, "use_bias": true, "kernel_constraint": null, "kernel_regularizer": null, "activity_regularizer": null, "bias_constraint": null, "units": 500}
+  },
+  {"class_name": "Dense",
+   "config":
+      {"kernel_initializer": "glorot_uniform", "trainable": true, "name": "decoder4", "input_dim": null, "activation": "linear", "bias_regularizer": null, "use_bias": true, "kernel_constraint": null, "kernel_regularizer": null, "activity_regularizer": null, "bias_constraint": null, "units": 2000}
+  }
+  ]}
