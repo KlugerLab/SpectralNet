@@ -84,7 +84,7 @@ class LearningHandler(Callback):
         lr_tensor:  tensorflow (or keras) tensor for the learning rate
         patience:   patience of the learning rate scheduler
         '''
-        super().__init__()
+        super(LearningHandler, self).__init__()
         self.lr = lr
         self.drop = drop
         self.lr_tensor = lr_tensor
