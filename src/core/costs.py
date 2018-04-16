@@ -138,13 +138,31 @@ def full_affinity(X, scale):
     W = K.exp(-Dx_scaled)
     return W
 
-def contrastive_loss(y_true, y_pred):
-    '''Contrastive loss from Hadsell-et-al.'06
+def get_contrastive_loss(m_neg=1, m_pos=.2):
+    '''
+    Contrastive loss from Hadsell-et-al.'06
     http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf
     '''
-    margin = 1
-    return K.mean(y_true * K.square(y_pred) +
-                (1 - y_true) * K.square(K.maximum(margin - y_pred, 0)))
+    def contrastive_loss(y_true, y_pred):
+        return K.mean(y_true * K.square(K.maximum(y_pred - m_pos, 0)) +
+                    (1 - y_true) * K.square(K.maximum(m_neg - y_pred, 0)))
+
+    return contrastive_loss
+
+def get_triplet_loss(m=1):
+    '''
+    Triplet loss is defined as:
+        L(A, P, N) = max(d(A, N) - d(A, P) + m, 0)
+    where A is the anchor, and P, N are the positive and negative
+    examples w.r.t. the anchor. To adapt this loss to the keras
+    paradigm, we pre-compute y_diff = d(A, N) - d(A, P).
+    NOTE: since each example includes a positive and a negative,
+    we no longer use y_true
+    '''
+    def triplet_loss(_, y_diff):
+        return K.mean(K.maximum(y_diff + m, 0))
+
+    return triplet_loss
 
 def euclidean_distance(vects):
     '''

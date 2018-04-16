@@ -128,7 +128,7 @@ class LearningHandler(Callback):
             stop_training = True
 
         # for keras
-        if hasattr(self, 'model'):
+        if hasattr(self, 'model') and self.model is not None:
             self.model.stop_training = stop_training
 
         return stop_training
