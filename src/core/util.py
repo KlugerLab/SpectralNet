@@ -12,11 +12,24 @@ import sklearn.metrics
 
 from keras import backend as K
 from keras.callbacks import Callback
-from keras.engine.training import _make_batches
 import tensorflow as tf
 
 from core import costs as cf
 from munkres import Munkres
+
+def make_batches(size, batch_size):
+    '''
+    generates a list of (start_idx, end_idx) tuples for batching data
+    of the given size and batch_size
+
+    size:       size of the data to create batches for
+    batch_size: batch size
+
+    returns:    list of tuples of indices for data
+    '''
+    num_batches = (size + batch_size - 1) // batch_size  # round up
+    return [(i * batch_size, min(size, (i + 1) * batch_size))
+            for i in range(num_batches)]
 
 def train_gen(pairs_train, dist_train, batch_size):
     '''
@@ -27,7 +40,7 @@ def train_gen(pairs_train, dist_train, batch_size):
 
     returns:        generator instance
     '''
-    batches = _make_batches(len(pairs_train), batch_size)
+    batches = make_batches(len(pairs_train), batch_size)
     while 1:
         random_idx = np.random.permutation(len(pairs_train))
         for batch_start, batch_end in batches:

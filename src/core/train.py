@@ -2,7 +2,7 @@
 train.py: contains all training and prediction backend functions for spectral net
 '''
 from keras import backend as K
-from keras.engine.training import _make_batches
+from .util import make_batches
 
 import numpy as np
 
@@ -125,7 +125,7 @@ def predict(predict_var, x_unlabeled, inputs, y_true, batch_sizes,
     if 'Labeled' in batch_sizes and 'Unlabeled' in batch_sizes:
         assert unlabeled_batch_size == labeled_batch_size
     batch_size = min(len(x), max(unlabeled_batch_size, labeled_batch_size))
-    batches = _make_batches(len(x), batch_size)
+    batches = make_batches(len(x), batch_size)
 
     y_preds = []
     # predict over all points

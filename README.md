@@ -12,25 +12,25 @@ To run SpectralNet, you'll need Python 3.x and the following python packages:
 - h5py
 
 You will also need wget to download the Reuters dataset, which for MacOS can be installed with
-```
+```bash
 brew install wget
 ```
 
 ## downloading and preprocessing reuters
 To run SpectralNet on the Reuters dataset, you must first download and preprocess it. This can be done by
-```
+```bash
 cd path_to_spectralnet/data/reuters/; ./get_data.sh; python make_reuters.py
 ```
 
 ## usage
 To use SpectralNet on MNIST, Reuters, the nested 'C' dataset (as seen above), or the semi-supervised and noisy nested 'C' dataset, please run
-```
+```bash
 cd path_to_spectralnet/src/applications; python run.py --gpu=gpu_num --dset=mnist|reuters|cc|cc_semisup
 ```
 To use SpectralNet on a new dataset, simply pass a tuple to get_data (a function in src/core/data.py) containing four elements in the following order: (x_train, x_test, y_train, y_test). Then define the appropriate hyperparameters and call spectralnet.run(). (See example)
 
 ## example script
-```
+```python
 import sys, os
 # add directories in src/ to path
 sys.path.insert(0, 'path_to_spectralnet/src/')
