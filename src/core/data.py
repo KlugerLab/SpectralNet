@@ -87,7 +87,7 @@ def get_data(params, data=None):
     else:
         # otherwise just flatten it
         for i, d in enumerate(all_data):
-            all_data[i] = all_data[i].reshape((-1, np.prod(all_data[i].shape[1:]), 1))
+            all_data[i] = all_data[i].reshape((-1, np.prod(all_data[i].shape[1:])))
     x_train, x_val, x_test, x_train_unlabeled, x_train_labeled, x_val_unlabeled, x_val_labeled = all_data
 
     # collect everything into a dictionary
