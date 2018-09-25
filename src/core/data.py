@@ -147,8 +147,8 @@ def get_data(params, data=None):
         #get pairs for labeled data
         class_indices = [np.where(y_train_labeled == i)[0] for i in range(params['n_clusters'])]
         pairs_train_labeled, dist_train_labeled = pairs.create_pairs_from_labeled_data(x_train_labeled, class_indices)
-        class_indices = [np.where(y_train_labeled == i)[0] for i in range(params['n_clusters'])]
-        pairs_val_labeled, dist_val_labeled = pairs.create_pairs_from_labeled_data(x_train_labeled, class_indices)
+        class_indices = [np.where(y_val_labeled == i)[0] for i in range(params['n_clusters'])]
+        pairs_val_labeled, dist_val_labeled = pairs.create_pairs_from_labeled_data(x_val_labeled, class_indices)
 
         ret['siamese']['train_unlabeled_and_labeled'] = (pairs_train_unlabeled, dist_train_unlabeled, pairs_train_labeled, dist_train_labeled)
         ret['siamese']['val_unlabeled_and_labeled'] = (pairs_val_unlabeled, dist_val_unlabeled, pairs_val_labeled, dist_val_labeled)
