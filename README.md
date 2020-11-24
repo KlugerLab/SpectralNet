@@ -6,7 +6,8 @@ SpectralNet is a python library that performs spectral clustering with deep neur
 ## requirements
 To run SpectralNet, you'll need Python 3.x and the following python packages:
 - scikit-learn
-- tensorflow
+- tensorflow==1.15
+- keras==2.3
 - munkres
 - annoy
 - h5py
