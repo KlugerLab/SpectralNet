@@ -1,7 +1,12 @@
 # SpectralNet
 ![cc](https://user-images.githubusercontent.com/9156971/34493923-1abbabe8-efbc-11e7-8788-66c62bc91f4d.png)
 
-SpectralNet is a python library that performs spectral clustering with deep neural networks.
+SpectralNet is a python library that performs spectral clustering with deep neural networks. <br>
+
+Link to the paper - [SpectralNet](https://openreview.net/pdf?id=HJ_aoCyRZ)
+
+## New PyTorch implementation
+We recommend using our new (2023) well-maintained PyTorch implementation in the following link - [PyTorch SpectralNet](https://github.com/shaham-lab/SpectralNet)
 
 ## requirements
 To run SpectralNet, you'll need Python 3.x and the following python packages:
@@ -82,3 +87,4 @@ data = get_data(params, new_dataset_data)
 x_spectralnet, y_spectralnet = run_net(data, params)
 ```
 For more information on what each hyperparameter means, see src/applications/run.py
+
